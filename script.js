@@ -3,6 +3,7 @@ let amphibians = [];
 let currentIndex = 0;
 let filteredAmphibians = [];
 let isSearchOpen = false;
+let isFlipping = false; // Add this flag to prevent multiple rapid flips
 
 // Amphibian categories mapping
 const amphibianCategories = {
@@ -295,6 +296,9 @@ function loadCurrentAmphibian() {
     if (flashcard.classList.contains('flipped')) {
         flashcard.classList.remove('flipped');
     }
+    
+    // Reset flipping flag
+    isFlipping = false;
 }
 
 // Function to update the progress bar
@@ -310,10 +314,54 @@ function updateProgressBar() {
     }
 }
 
-// Function to flip the card
-function flipCard() {
+// Improved function to flip the card with debounce
+function flipCard(event) {
+    // Prevent flip if we're already in the middle of a flip animation
+    if (isFlipping) {
+        // Prevent event bubbling
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        return;
+    }
+    
+    // Set flag to prevent multiple flips during animation
+    isFlipping = true;
+    
     const flashcard = document.getElementById('flashcard');
     flashcard.classList.toggle('flipped');
+    
+    // On mobile, we need to pay special attention to touch events on the back of the card
+    if (flashcard.classList.contains('flipped')) {
+        // Card is now showing the back
+        enableBackCardInteraction();
+    } else {
+        // Card is now showing the front
+        disableBackCardInteraction();
+    }
+    
+    // Reset the flag after animation completes
+    setTimeout(() => {
+        isFlipping = false;
+    }, 800); // Match this with your transition duration
+}
+
+// Functions to handle touch events on back card
+function enableBackCardInteraction() {
+    // Enable scrolling on the back card
+    const backCard = document.querySelector('.flashcard-back');
+    if (backCard) {
+        backCard.style.pointerEvents = 'auto';
+    }
+}
+
+function disableBackCardInteraction() {
+    // Reset pointer events - no longer needed once flipped back
+    const backCard = document.querySelector('.flashcard-back');
+    if (backCard) {
+        backCard.style.pointerEvents = 'none';
+    }
 }
 
 // Function to go to the next amphibian
@@ -537,6 +585,56 @@ function initializeSearchBlur() {
     });
 }
 
+// Initialize touch events for mobile
+function initializeTouchEvents() {
+    // Make sure flipCard is properly tied to events with the correct 'this' context
+    const flashcard = document.getElementById('flashcard');
+    
+    // Remove any existing event listeners
+    flashcard.removeEventListener('click', flipCard);
+    
+    // Add event listeners with proper binding
+    flashcard.addEventListener('click', function(event) {
+        // Prevent clicks on the back card from flipping it
+        if (flashcard.classList.contains('flipped') && 
+            event.target.closest('.flashcard-back') && 
+            !event.target.closest('.back-content')) {
+            // If we're on the back and the user clicked on actual content, let them scroll
+            return;
+        }
+        
+        // Otherwise flip the card
+        flipCard(event);
+    });
+    
+    // Special handling for the flip button
+    const flipBtn = document.getElementById('flip-btn');
+    flipBtn.removeEventListener('click', flipCard);
+    flipBtn.addEventListener('click', function(event) {
+        // Prevent event bubbling to avoid duplicate flip
+        event.stopPropagation();
+        flipCard(event);
+    });
+    
+    // Handle touch events specially to prevent freezing
+    const backCard = document.querySelector('.flashcard-back');
+    if (backCard) {
+        // Prevent touchstart on back card from bubbling when inside content
+        backCard.addEventListener('touchstart', function(event) {
+            // Allow touch events for scrolling when on content
+            event.stopPropagation();
+        }, { passive: true });
+        
+        // Add tap to flip functionality specifically for the back card
+        backCard.addEventListener('click', function(event) {
+            // Only flip if the background is clicked, not content
+            if (event.target === backCard || event.target.classList.contains('back-content')) {
+                flipCard(event);
+            }
+        });
+    }
+}
+
 // Keyboard navigation
 function initializeKeyboardNavigation() {
     document.addEventListener('keydown', (e) => {
@@ -560,7 +658,7 @@ function initializeKeyboardNavigation() {
                 break;
             case ' ':
             case 'Enter':
-                flipCard();
+                flipCard(e);
                 break;
         }
     });
@@ -574,9 +672,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme
     initializeTheme();
     
-    // Add event listener for the flip button and card click
-    document.getElementById('flip-btn').addEventListener('click', flipCard);
-    document.getElementById('flashcard').addEventListener('click', flipCard);
+    // Initialize touch events - this is key for mobile
+    initializeTouchEvents();
     
     // Add event listeners for navigation buttons
     document.getElementById('next-btn').addEventListener('click', nextAmphibian);
