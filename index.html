@@ -47,22 +47,6 @@
             <button class="filter-btn" data-filter="newt">Newts</button>
         </div>
 
-        <div class="selector-container">
-            <div class="dropdown-container">
-                <label for="amphibian-select">Choose an amphibian:</label>
-                <div class="custom-select">
-                    <select id="amphibian-select" aria-label="Select an amphibian to view">
-                        <!-- Options will be added by JavaScript -->
-                    </select>
-                    <div class="select-arrow">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="card-container-wrapper">
             <div class="flashcard-container">
                 <div class="flashcard" id="flashcard">
@@ -126,6 +110,24 @@
             </div>
             <div class="progress-bar-container">
                 <div id="progress-bar" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Moved selector below the navigation controls -->
+        <div class="selector-container">
+            <div class="dropdown-container">
+                <label for="amphibian-select">Choose an amphibian:</label>
+                <div class="custom-select">
+                    <select id="amphibian-select" aria-label="Select an amphibian to view">
+                        <option value="">Select an amphibian...</option>
+                        <!-- Options will be added by JavaScript -->
+                    </select>
+                    <div class="select-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
 
