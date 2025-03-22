@@ -274,75 +274,6 @@ header {
     border-color: var(--primary-color);
 }
 
-/* Dropdown Selector */
-.selector-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--spacing-lg);
-    position: relative;
-    z-index: 9;
-}
-
-.dropdown-container {
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-}
-
-.dropdown-container label {
-    font-weight: 500;
-    color: var(--primary-color);
-    font-size: 0.95rem;
-}
-
-.custom-select {
-    position: relative;
-    width: 100%;
-}
-
-.custom-select select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 100%;
-    padding: 0.7rem 1rem;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background-color: var(--card-background);
-    color: var(--text-color);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-}
-
-.custom-select select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(44, 110, 73, 0.2);
-}
-
-.select-arrow {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: var(--primary-color);
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.select-arrow svg {
-    width: 16px;
-    height: 16px;
-}
-
 /* Card Container Styles */
 .card-container-wrapper {
     flex: 1;
@@ -434,6 +365,9 @@ header {
     border-radius: var(--radius-md);
     font-size: 0.8rem;
     z-index: 3;
+    /* Add backface-visibility to hide when card is flipped */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 #amphibian-image {
@@ -483,7 +417,7 @@ header {
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
-    margin: 0 auto var(--spacing-lg);
+    margin: 0 auto var(--spacing-md); /* Reduced bottom margin */
     position: relative;
     z-index: 7;
 }
@@ -524,7 +458,7 @@ header {
 
 /* Progress Bar */
 .progress-container {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md); /* Reduced margin */
     width: 100%;
     max-width: 450px;
     margin-left: auto;
@@ -553,6 +487,75 @@ header {
     background-color: var(--primary-color);
     border-radius: 6px;
     transition: width var(--transition-medium);
+}
+
+/* Dropdown Selector - Moved below navigation */
+.selector-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 5;
+}
+
+.dropdown-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.dropdown-container label {
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--card-background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.custom-select select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(44, 110, 73, 0.2);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--primary-color);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-arrow svg {
+    width: 16px;
+    height: 16px;
 }
 
 /* Footer */
