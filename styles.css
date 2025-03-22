@@ -353,8 +353,11 @@ header {
     padding: var(--spacing-lg);
     overflow-y: auto;
     justify-content: flex-start;
+    /* Create an isolated stacking context */
+    isolation: isolate;
 }
 
+/* Fixed rarity tag */
 .corner-info {
     position: absolute;
     top: var(--spacing-md);
@@ -365,9 +368,19 @@ header {
     border-radius: var(--radius-md);
     font-size: 0.8rem;
     z-index: 3;
-    /* Add backface-visibility to hide when card is flipped */
+    /* Add multiple approaches for different browsers */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+/* Add a class-based method to handle the rarity tag */
+.flashcard-front .corner-info {
+    display: block; /* Ensure it shows on front */
+}
+
+/* Force the tag to be hidden on the back side */
+.flashcard-back .corner-info {
+    display: none !important; /* Use !important to override any other rules */
 }
 
 #amphibian-image {
