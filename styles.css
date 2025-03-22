@@ -274,7 +274,7 @@ header {
     border-color: var(--primary-color);
 }
 
-/* Card Container Styles - COMPLETELY REVISED FOR MOBILE */
+/* Card Container Styles - REVISED WITH SCROLLING FIXES */
 .card-container-wrapper {
     flex: 1;
     display: flex;
@@ -284,6 +284,7 @@ header {
     position: relative;
     z-index: 10;
     min-height: 400px;
+    max-height: 70vh; /* Limit maximum height on large screens */
 }
 
 .flashcard-container {
@@ -306,7 +307,7 @@ header {
     }
 }
 
-/* New card implementation that avoids backface-visibility issues */
+/* Updated card implementation with flicker fixes */
 .flashcard {
     width: 100%;
     height: 100%;
@@ -314,6 +315,13 @@ header {
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    /* Add these properties to prevent flicker */
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+    will-change: transform;
 }
 
 .flashcard.flipped {
@@ -340,17 +348,28 @@ header {
     align-items: center;
     padding: var(--spacing-md);
     z-index: 2;
-    /* No transform here - this is the default front face */
 }
 
+/* Fixed scrolling on the back card */
 .flashcard-back {
     background-color: var(--card-back-background);
     text-align: left;
     padding: var(--spacing-lg);
-    overflow-y: auto;
+    overflow-y: auto; /* Keep this to allow scrolling */
+    -webkit-overflow-scrolling: touch; /* Enables momentum scrolling on iOS */
     justify-content: flex-start;
     transform: rotateY(180deg);
     z-index: 1;
+    /* Don't block touch events on the back card */
+    touch-action: auto;
+}
+
+/* Add container for back content to ensure it's properly sized for scrolling */
+.back-content {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Corner info tag styling */
@@ -401,6 +420,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    width: 100%;
+    height: auto;
 }
 
 .detail-row {
@@ -685,6 +706,36 @@ footer a:hover {
     box-shadow: 0 0 0 2px rgba(85, 185, 128, 0.3);
 }
 
+/* Specifically target iOS devices for additional fixes */
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+    .card-side {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        will-change: transform;
+    }
+    
+    .flashcard-back {
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+    
+    /* Ensure the back card is positioned correctly for scrolling */
+    .flashcard.flipped .flashcard-back {
+        overflow-y: auto;
+        touch-action: pan-y;
+        pointer-events: auto;
+    }
+    
+    /* Fix for the image flash */
+    #amphibian-image {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
 /* Small screen adjustments */
 @media (max-width: 480px) {
     h1 {
@@ -729,25 +780,5 @@ footer a:hover {
     
     h1 {
         font-size: 2rem;
-    }
-}
-
-/* Mobile Safari-specific fix */
-@supports (-webkit-touch-callout: none) {
-    /* CSS specific to iOS devices */
-    .card-side {
-        -webkit-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-    }
-    
-    .flashcard-back {
-        -webkit-transform: rotateY(180deg);
-        transform: rotateY(180deg);
-    }
-    
-    .corner-info {
-        /* Force hide on back */
-        -webkit-transform-style: flat;
-        transform-style: flat;
     }
 }
