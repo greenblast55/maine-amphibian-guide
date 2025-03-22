@@ -223,8 +223,14 @@ function populateDropdown() {
     // Add event listener for change
     selectElement.addEventListener('change', handleDropdownChange);
     
-    // Set the current value
-    selectElement.value = currentIndex;
+    // Reset the dropdown to default
+    resetDropdown();
+}
+
+// Function to reset dropdown to default empty selection
+function resetDropdown() {
+    const selectElement = document.getElementById('amphibian-select');
+    selectElement.value = '';
 }
 
 // Function to handle dropdown selection change
@@ -232,6 +238,8 @@ function handleDropdownChange(event) {
     const selectedIndex = parseInt(event.target.value);
     if (!isNaN(selectedIndex)) {
         goToAmphibian(selectedIndex);
+        // Reset dropdown after selection
+        resetDropdown();
     }
 }
 
@@ -241,10 +249,6 @@ function goToAmphibian(index) {
         currentIndex = index;
         loadCurrentAmphibian();
         updateProgressBar();
-        
-        // Update dropdown selection
-        const selectElement = document.getElementById('amphibian-select');
-        selectElement.value = index;
     }
 }
 
@@ -316,10 +320,7 @@ function nextAmphibian() {
         currentIndex = (currentIndex + 1) % filteredAmphibians.length;
         loadCurrentAmphibian();
         updateProgressBar();
-        
-        // Update dropdown selection
-        const selectElement = document.getElementById('amphibian-select');
-        selectElement.value = currentIndex;
+        resetDropdown();
     }
 }
 
@@ -329,10 +330,7 @@ function previousAmphibian() {
         currentIndex = (currentIndex - 1 + filteredAmphibians.length) % filteredAmphibians.length;
         loadCurrentAmphibian();
         updateProgressBar();
-        
-        // Update dropdown selection
-        const selectElement = document.getElementById('amphibian-select');
-        selectElement.value = currentIndex;
+        resetDropdown();
     }
 }
 
