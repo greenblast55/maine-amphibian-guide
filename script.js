@@ -277,6 +277,8 @@ function loadCurrentAmphibian() {
     // Update the front of the card (image)
     document.getElementById('amphibian-image').src = amphibian.image;
     document.getElementById('amphibian-image').alt = `${amphibian.name} - ${amphibian.identifying_characteristics}`;
+    
+    // Update rarity tag on front
     document.getElementById('amphibian-rarity-front').textContent = amphibian.big_night_rarity;
     
     // Update the back of the card (details)
