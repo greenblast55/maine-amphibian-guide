@@ -232,107 +232,6 @@ function addImageZoom() {
   });
 }
 
-// Add a share button
-function addShareButton() {
-  const navControls = document.querySelector('.navigation-controls');
-  
-  // Create share button
-  const shareButton = document.createElement('button');
-  shareButton.classList.add('nav-btn', 'share-btn');
-  shareButton.setAttribute('aria-label', 'Share this amphibian');
-  shareButton.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="18" cy="5" r="3"></circle>
-      <circle cx="6" cy="12" r="3"></circle>
-      <circle cx="18" cy="19" r="3"></circle>
-      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-    </svg>
-  `;
-  
-  // Insert after the flip button
-  navControls.insertBefore(shareButton, document.getElementById('next-btn'));
-  
-  // Add share functionality
-  shareButton.addEventListener('click', function() {
-    const currentAmphibian = filteredAmphibians[currentIndex];
-    
-    // Create share modal
-    const shareModal = document.createElement('div');
-    shareModal.classList.add('modal');
-    shareModal.style.display = 'flex';
-    
-    shareModal.innerHTML = `
-      <div class="modal-content share-modal">
-        <span class="close-modal">&times;</span>
-        <h2>Share ${currentAmphibian.name}</h2>
-        <div class="share-options">
-          <button class="share-option" data-type="copy">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span>Copy Link</span>
-          </button>
-          <button class="share-option" data-type="email">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span>Email</span>
-          </button>
-        </div>
-        <div class="share-message"></div>
-      </div>
-    `;
-    
-    document.body.appendChild(shareModal);
-    
-    // Close modal functionality
-    const closeBtn = shareModal.querySelector('.close-modal');
-    closeBtn.addEventListener('click', function() {
-      document.body.removeChild(shareModal);
-    });
-    
-    // Close when clicking outside
-    shareModal.addEventListener('click', function(e) {
-      if (e.target === shareModal) {
-        document.body.removeChild(shareModal);
-      }
-    });
-    
-    // Share options functionality
-    const shareOptions = shareModal.querySelectorAll('.share-option');
-    const shareMessage = shareModal.querySelector('.share-message');
-    
-    shareOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        const shareType = this.getAttribute('data-type');
-        const shareUrl = window.location.href;
-        const shareText = `Check out the ${currentAmphibian.name} in the Maine Amphibian Guide!`;
-        
-        if (shareType === 'copy') {
-          // Copy to clipboard
-          navigator.clipboard.writeText(shareUrl).then(() => {
-            shareMessage.textContent = 'Link copied to clipboard!';
-            shareMessage.classList.add('success');
-            setTimeout(() => {
-              shareMessage.textContent = '';
-              shareMessage.classList.remove('success');
-            }, 2000);
-          }).catch(err => {
-            shareMessage.textContent = 'Failed to copy link.';
-            shareMessage.classList.add('error');
-          });
-        } else if (shareType === 'email') {
-          // Open email client
-          window.location.href = `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(shareText + '\n\n' + shareUrl)}`;
-        }
-      });
-    });
-  });
-}
-
 // Initialize all UX improvements
 function initializeUXImprovements() {
   // Wait for DOM to be fully loaded
@@ -343,7 +242,7 @@ function initializeUXImprovements() {
     addFlipHint();
     addLoadingIndicator();
     addImageZoom();
-    addShareButton();
+    // Share button functionality removed as requested
   });
 }
 

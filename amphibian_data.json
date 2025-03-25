@@ -1,140 +1,174 @@
 {
   "amphibians": [
     {
+      "id": 0,
       "name": "Spring Peeper",
       "image": "images/amphibian-000.jpg",
       "size": "1in long",
-      "identifying_characteristics": "Very small size. Usually has an x-shaped mark on the back. Tan to brownish color. Calls a high-pitched peep.",
-      "big_night_rarity": "Common",
-      "fun_fact": "Males have a dark colored throat, females do not. See if you can identify any!"
+      "characteristics": "Very small size. Usually has an x-shaped mark on the back. Tan to brownish color. Calls a high-pitched peep.",
+      "rarity": "Common",
+      "fact": "Males have a dark colored throat, females do not. See if you can identify any!",
+      "type": "frog"
     },
     {
+      "id": 1,
       "name": "Wood Frog",
       "image": "images/amphibian-001.jpg",
       "size": "2-3in long",
-      "identifying_characteristics": "Fairly plain mid-size frog, usually has a black or dark brown \"facemask\". Can be light to dark brown, or even red. Call sounds like a \"quacking\" or \"clucking\".",
-      "big_night_rarity": "Common",
-      "fun_fact": "Wood Frogs have the northernmost range of any frog in the world; this is partially due to their ability to freeze solid!"
+      "characteristics": "Fairly plain mid-size frog, usually has a black or dark brown \"facemask\". Can be light to dark brown, or even red. Call sounds like a \"quacking\" or \"clucking\".",
+      "rarity": "Common",
+      "fact": "Wood Frogs have the northernmost range of any frog in the world; this is partially due to their ability to freeze solid!",
+      "type": "frog"
     },
     {
+      "id": 2,
       "name": "American Toad",
       "image": "images/amphibian-002.jpg",
       "size": "3-4 in long",
-      "identifying_characteristics": "Dry, bumpy skin. Two large glands directly behind eyes. Call is a long, drawn out trill.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Toads produce toxin from glands all over their skin, which comes out as a white, sticky substance. It's fine if it touches your hands, but expect foaming and stomach aches if it's ingested!"
+      "characteristics": "Dry, bumpy skin. Two large glands directly behind eyes. Call is a long, drawn out trill.",
+      "rarity": "Uncommon",
+      "fact": "Toads produce toxin from glands all over their skin, which comes out as a white, sticky substance. It's fine if it touches your hands, but expect foaming and stomach aches if it's ingested!",
+      "type": "toad"
     },
     {
+      "id": 3,
       "name": "Green Frog",
       "image": "images/amphibian-003.jpg",
       "size": "2-4in long",
-      "identifying_characteristics": "A larger frog that can be green, yellow, black, brown, and even blue. Appearance is often somewhat \"messy\". A distinct line of skin running down the back distinguishes it from bullfrogs. Call a twangy, single note.",
-      "big_night_rarity": "Common",
-      "fun_fact": "Their twangy-call has earned them the nickname of the \"Banjo Frog\"."
+      "characteristics": "A larger frog that can be green, yellow, black, brown, and even blue. Appearance is often somewhat \"messy\". A distinct line of skin running down the back distinguishes it from bullfrogs. Call a twangy, single note.",
+      "rarity": "Common",
+      "fact": "Their twangy-call has earned them the nickname of the \"Banjo Frog\".",
+      "type": "frog"
     },
     {
+      "id": 4,
       "name": "American Bullfrog",
       "image": "images/amphibian-004.jpg",
       "size": "Up to 8in long",
-      "identifying_characteristics": "Usually large, greenish-yellow to dark green. To separate from Green Frog, look for lack of ridge just behind eardrum (tympanum). Call a bellowing, mooing sound.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Bullfrogs are very adaptable and have begun invading other areas in the United States—to the point of becoming a problem!"
+      "characteristics": "Usually large, greenish-yellow to dark green. To separate from Green Frog, look for lack of ridge just behind eardrum (tympanum). Call a bellowing, mooing sound.",
+      "rarity": "Uncommon",
+      "fact": "Bullfrogs are very adaptable and have begun invading other areas in the United States—to the point of becoming a problem!",
+      "type": "frog"
     },
     {
+      "id": 5,
       "name": "Gray Treefrog",
       "image": "images/amphibian-005.jpg",
       "size": "1-3in long",
-      "identifying_characteristics": "Appearance resembles lichen or tree bark. Has large, sticky toe-pads used for climbing. Can be gray or have large patches of green—especially in juveniles. Call a short, bird-like trill. Males have bright yellow inner thighs, only visible when legs are extended.",
-      "big_night_rarity": "Rare",
-      "fun_fact": "Their scientific name, versicolor, refers to their ability to change their color from dark grays, to white, to green!"
+      "characteristics": "Appearance resembles lichen or tree bark. Has large, sticky toe-pads used for climbing. Can be gray or have large patches of green—especially in juveniles. Call a short, bird-like trill. Males have bright yellow inner thighs, only visible when legs are extended.",
+      "rarity": "Rare",
+      "fact": "Their scientific name, versicolor, refers to their ability to change their color from dark grays, to white, to green!",
+      "type": "frog"
     },
     {
+      "id": 6,
       "name": "Pickerel Frog",
       "image": "images/amphibian-006.jpg",
       "size": "1-3in long",
-      "identifying_characteristics": "Overall bronze color with square/rectangular spots, usually in two rows down the back. Bright yellow patches on underside of thighs. Call sounds like a door creaking open.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Pickerel Frogs produce a nasty toxin capable of killing other amphibians; make sure you wash your hands after handling one to prevent hurting others!"
+      "characteristics": "Overall bronze color with square/rectangular spots, usually in two rows down the back. Bright yellow patches on underside of thighs. Call sounds like a door creaking open.",
+      "rarity": "Uncommon",
+      "fact": "Pickerel Frogs produce a nasty toxin capable of killing other amphibians; make sure you wash your hands after handling one to prevent hurting others!",
+      "type": "frog"
     },
     {
+      "id": 7,
       "name": "Leopard Frog",
       "image": "images/amphibian-007.jpg",
       "size": "1-3in long",
-      "identifying_characteristics": "Lime green to light tan with circular spots surrounded by light halos. Differentiated from Pickerel Frog by rounder spots and greener overall color. Call a short snore.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Leopard Frogs produce enzymes that are being tested as cures for mesothelioma, brain cancer, and lung cancer."
+      "characteristics": "Lime green to light tan with circular spots surrounded by light halos. Differentiated from Pickerel Frog by rounder spots and greener overall color. Call a short snore.",
+      "rarity": "Uncommon",
+      "fact": "Leopard Frogs produce enzymes that are being tested as cures for mesothelioma, brain cancer, and lung cancer.",
+      "type": "frog"
     },
     {
+      "id": 8,
       "name": "Mink Frog",
       "image": "images/amphibian-008.jpg",
       "size": "1-3in long",
-      "identifying_characteristics": "Green with black and brown splotching over the entire body, otherwise similar in appearance to Green Frog. Smells musty. Webbing on rear foot usually extends the tip of the outermost toe.",
-      "big_night_rarity": "Rare",
-      "fun_fact": "Mink Frogs are named for their smell—apparently smelling like mink, or rotten onions. Mink frogs are also highly resistant to a modern, very deadly frog disease called Ranavirus—this may be due to bacteria that lives on their skin."
+      "characteristics": "Green with black and brown splotching over the entire body, otherwise similar in appearance to Green Frog. Smells musty. Webbing on rear foot usually extends the tip of the outermost toe.",
+      "rarity": "Rare",
+      "fact": "Mink Frogs are named for their smell—apparently smelling like mink, or rotten onions. Mink frogs are also highly resistant to a modern, very deadly frog disease called Ranavirus—this may be due to bacteria that lives on their skin.",
+      "type": "frog"
     },
     {
+      "id": 9,
       "name": "Spotted Salamander",
       "image": "images/amphibian-009.jpg",
       "size": "Up to 8in",
-      "identifying_characteristics": "Unmistakable black body with yellow spots. Large salamander overall.",
-      "big_night_rarity": "Common",
-      "fun_fact": "Spotted Salamanders are the only known vertebrate animals capable of photosynthesis due to a mutualism with algae."
+      "characteristics": "Unmistakable black body with yellow spots. Large salamander overall.",
+      "rarity": "Common",
+      "fact": "Spotted Salamanders are the only known vertebrate animals capable of photosynthesis due to a mutualism with algae.",
+      "type": "salamander"
     },
     {
+      "id": 10,
       "name": "Blue-spotted Salamander/Unisexual Salamander Complex",
       "image": "images/amphibian-010.jpg",
       "size": "Up to 6in long",
-      "identifying_characteristics": "Can be all gray to black, usually with blue flecking on the belly. Almost as large as Spotted Salamanders.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Blue-spotted Salamanders regularly steal genetic information from other salamanders, making them an endlessly complex salamander to study."
+      "characteristics": "Can be all gray to black, usually with blue flecking on the belly. Almost as large as Spotted Salamanders.",
+      "rarity": "Uncommon",
+      "fact": "Blue-spotted Salamanders regularly steal genetic information from other salamanders, making them an endlessly complex salamander to study.",
+      "type": "salamander"
     },
     {
+      "id": 11,
       "name": "Eastern Newt/Red Eft",
       "image": "images/amphibian-011.jpg",
       "size": "1.5-3in long",
-      "identifying_characteristics": "Usually a bright red with small black halos running down either side of the back. Can have dulled brown or gray backs. Adults (fully aquatic) brown/olive green on top with yellow belly and black spots.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "The Red Eft stage is what you're likely to find on a Big Night; this is the juvenile stage, which can take several years to complete. When they're ready to become adults, they enter the water for the rest of their lives!"
+      "characteristics": "Usually a bright red with small black halos running down either side of the back. Can have dulled brown or gray backs. Adults (fully aquatic) brown/olive green on top with yellow belly and black spots.",
+      "rarity": "Uncommon",
+      "fact": "The Red Eft stage is what you're likely to find on a Big Night; this is the juvenile stage, which can take several years to complete. When they're ready to become adults, they enter the water for the rest of their lives!",
+      "type": "newt"
     },
     {
+      "id": 12,
       "name": "Eastern Red-backed Salamander",
       "image": "images/amphibian-012.jpg",
       "size": "2-3in long",
-      "identifying_characteristics": "Single red stripe running down the back, with a dark gray metallic body. Occasionally, individuals may be lacking the red stripe, called \"lead-backs\".",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Eastern Redbacks are some of the most common vertebrates in the woods; some say they even outweigh all the other vertebrates in a patch of woods combined!"
+      "characteristics": "Single red stripe running down the back, with a dark gray metallic body. Occasionally, individuals may be lacking the red stripe, called \"lead-backs\".",
+      "rarity": "Uncommon",
+      "fact": "Eastern Redbacks are some of the most common vertebrates in the woods; some say they even outweigh all the other vertebrates in a patch of woods combined!",
+      "type": "salamander"
     },
     {
+      "id": 13,
       "name": "Northern Two-lined Salamander",
       "image": "images/amphibian-013.jpg",
       "size": "2-4in long",
-      "identifying_characteristics": "Tan color with two faintly separated yellowish lines running down the back. Tail flat and paddle-like.",
-      "big_night_rarity": "Rare",
-      "fun_fact": "Found commonly around streams, these salamanders will wiggle wildly until they reach water to escape predators."
+      "characteristics": "Tan color with two faintly separated yellowish lines running down the back. Tail flat and paddle-like.",
+      "rarity": "Rare",
+      "fact": "Found commonly around streams, these salamanders will wiggle wildly until they reach water to escape predators.",
+      "type": "salamander"
     },
     {
+      "id": 14,
       "name": "Northern Dusky Salamander",
       "image": "images/amphibian-014.jpg",
       "size": "2-4in long",
-      "identifying_characteristics": "Can be brown or all black. When brown, nondistinct swirling patterns throughout body. Has a short shovel-like nose, and rear legs much thicker/larger than front, and front but somewhat paddle-like tail. Don't confuse with lead-phase Eastern Red-backed Salamanders, which will have all legs similar sized and rounded tails.",
-      "big_night_rarity": "Rare",
-      "fun_fact": "One of the lungless salamanders, Duskies breathe through their skin instead of through an internal respiratory system."
+      "characteristics": "Can be brown or all black. When brown, nondistinct swirling patterns throughout body. Has a short shovel-like nose, and rear legs much thicker/larger than front, and front but somewhat paddle-like tail. Don't confuse with lead-phase Eastern Red-backed Salamanders, which will have all legs similar sized and rounded tails.",
+      "rarity": "Rare",
+      "fact": "One of the lungless salamanders, Duskies breathe through their skin instead of through an internal respiratory system.",
+      "type": "salamander"
     },
     {
+      "id": 15,
       "name": "Four-toed Salamander",
       "image": "images/amphibian-015.jpg",
       "size": "2-3in long",
-      "identifying_characteristics": "Reddish brown back with belly patterned like a Dalmatian dog. Base of tail has noticeable constriction. Rear foot only has four toes; other salamanders have 5.",
-      "big_night_rarity": "Uncommon",
-      "fun_fact": "Four-toed salamanders specialize in sphagnum moss swamps. If your site has a nearby moss swamp, keep an eye out for these hard-to-see salamanders!"
+      "characteristics": "Reddish brown back with belly patterned like a Dalmatian dog. Base of tail has noticeable constriction. Rear foot only has four toes; other salamanders have 5.",
+      "rarity": "Uncommon",
+      "fact": "Four-toed salamanders specialize in sphagnum moss swamps. If your site has a nearby moss swamp, keep an eye out for these hard-to-see salamanders!",
+      "type": "salamander"
     },
     {
+      "id": 16,
       "name": "Northern Spring Salamander",
       "image": "images/amphibian-016.jpg",
       "size": "4-7in",
-      "identifying_characteristics": "Bright pinkish red salamander, large in size. Tail as long as body and flat. Squared-off nose.",
-      "big_night_rarity": "Unrecorded",
-      "fun_fact": "A true habitat specialist, Spring Salamanders are only found in small, cool headwater streams and may become harder to find due to climate change. Keep an eye out for them in mountainous sites. They are yet to be recorded during a spring MBN survey."
+      "characteristics": "Bright pinkish red salamander, large in size. Tail as long as body and flat. Squared-off nose.",
+      "rarity": "Unrecorded",
+      "fact": "A true habitat specialist, Spring Salamanders are only found in small, cool headwater streams and may become harder to find due to climate change. Keep an eye out for them in mountainous sites. They are yet to be recorded during a spring MBN survey.",
+      "type": "salamander"
     }
   ]
 }

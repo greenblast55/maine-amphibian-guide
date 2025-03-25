@@ -137,59 +137,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Share functionality */
-.share-btn {
-  position: relative;
-}
-
-.share-modal {
-  max-width: 400px;
-}
-
-.share-options {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.share-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: var(--info-bg);
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.share-option:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.share-option svg {
-  width: 24px;
-  height: 24px;
-}
-
-.share-message {
-  text-align: center;
-  height: 24px;
-  margin-top: 8px;
-}
-
-.share-message.success {
-  color: #4CAF50;
-}
-
-.share-message.error {
-  color: #F44336;
-}
-
 /* Improved focus styles for accessibility */
 button:focus-visible,
 select:focus-visible,
@@ -302,4 +249,10 @@ a:focus-visible {
   background-color: var(--primary-color);
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgba(44, 110, 73, 0.2);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
