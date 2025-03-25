@@ -184,54 +184,6 @@ function addLoadingIndicator() {
   });
 }
 
-// Add image zoom capability
-function addImageZoom() {
-  const amphibianImage = document.getElementById('amphibian-image');
-  
-  amphibianImage.addEventListener('click', function(e) {
-    e.stopPropagation(); // Prevent card flip
-    
-    // Create zoom overlay
-    const zoomOverlay = document.createElement('div');
-    zoomOverlay.classList.add('zoom-overlay');
-    
-    // Create zoomed image
-    const zoomedImage = document.createElement('img');
-    zoomedImage.src = this.src;
-    zoomedImage.alt = this.alt;
-    zoomedImage.classList.add('zoomed-image');
-    
-    // Add close button
-    const closeButton = document.createElement('button');
-    closeButton.classList.add('zoom-close');
-    closeButton.innerHTML = '&times;';
-    closeButton.setAttribute('aria-label', 'Close zoomed image');
-    
-    zoomOverlay.appendChild(zoomedImage);
-    zoomOverlay.appendChild(closeButton);
-    document.body.appendChild(zoomOverlay);
-    
-    // Close on button click
-    closeButton.addEventListener('click', function() {
-      document.body.removeChild(zoomOverlay);
-    });
-    
-    // Close on overlay click
-    zoomOverlay.addEventListener('click', function(e) {
-      if (e.target === zoomOverlay) {
-        document.body.removeChild(zoomOverlay);
-      }
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && document.body.contains(zoomOverlay)) {
-        document.body.removeChild(zoomOverlay);
-      }
-    });
-  });
-}
-
 // Initialize all UX improvements
 function initializeUXImprovements() {
   // Wait for DOM to be fully loaded
@@ -241,8 +193,7 @@ function initializeUXImprovements() {
     addVisualFeedback();
     addFlipHint();
     addLoadingIndicator();
-    addImageZoom();
-    // Share button functionality removed as requested
+    // Image zoom functionality removed to prioritize card flip
   });
 }
 

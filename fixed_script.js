@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('amphibian-rarity-front').textContent = amphibian.rarity;
         document.getElementById('amphibian-fact').textContent = amphibian.fact;
         
-        // Update dropdown selection
-        document.getElementById('amphibian-select').value = amphibian.id;
+        // Removed setting dropdown value to current amphibian
+        // This allows dropdown to be used only for selection, not for showing current animal
         
         // Update card counter
         document.getElementById('current-card').textContent = currentIndex + 1;
@@ -261,6 +261,9 @@ document.addEventListener('DOMContentLoaded', function() {
             option.textContent = amphibian.name;
             select.appendChild(option);
         });
+        
+        // Reset the dropdown to show the placeholder
+        select.selectedIndex = 0;
     }
     
     function updateProgressBar() {
