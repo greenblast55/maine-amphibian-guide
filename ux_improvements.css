@@ -1,0 +1,305 @@
+/* Additional CSS for UX improvements */
+
+/* Ripple effect for buttons */
+.ripple-effect {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Flip hint for first-time users */
+.flip-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  z-index: 10;
+  animation: pulse-hint 2s infinite;
+  pointer-events: none;
+}
+
+.hint-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hint-content svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hint-fade-out {
+  animation: fade-out 0.5s forwards;
+}
+
+@keyframes pulse-hint {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Loading indicator */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  border-radius: var(--radius-lg);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(44, 110, 73, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+.fade-out {
+  animation: fade-out 0.5s forwards;
+}
+
+/* Image zoom functionality */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.zoomed-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.zoom-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Share functionality */
+.share-btn {
+  position: relative;
+}
+
+.share-modal {
+  max-width: 400px;
+}
+
+.share-options {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.share-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: var(--info-bg);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.share-option:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.share-option svg {
+  width: 24px;
+  height: 24px;
+}
+
+.share-message {
+  text-align: center;
+  height: 24px;
+  margin-top: 8px;
+}
+
+.share-message.success {
+  color: #4CAF50;
+}
+
+.share-message.error {
+  color: #F44336;
+}
+
+/* Improved focus styles for accessibility */
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Swipe hint animation */
+.swipe-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0;
+  animation: fade-in-out 3s forwards;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+}
+
+/* Improved card hover effect */
+@media (min-width: 768px) {
+  .flashcard:not(.flipped):hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+}
+
+/* Improved mobile touch feedback */
+@media (max-width: 767px) {
+  .nav-btn:active {
+    transform: scale(0.95);
+    background-color: var(--primary-hover);
+  }
+  
+  .filter-btn:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Keyboard shortcuts info */
+.keyboard-shortcuts {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+.keyboard-shortcuts ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.keyboard-shortcuts li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.keyboard-shortcuts strong {
+  display: inline-block;
+  background-color: var(--info-bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Improved progress indicator */
+.progress-container {
+  position: relative;
+}
+
+.progress-text {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.progress-bar {
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(44, 110, 73, 0.2);
+}
