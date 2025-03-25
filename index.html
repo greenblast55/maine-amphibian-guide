@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maine Amphibian Guide</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fixed_styles.css">
+    <link rel="stylesheet" href="ux_improvements.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -49,7 +50,7 @@
 
         <div class="card-container-wrapper">
             <div class="flashcard-container">
-                <!-- Modified card structure to improve scrolling and prevent flicker -->
+                <!-- Improved card structure for better mobile handling -->
                 <div class="flashcard" id="flashcard">
                     <!-- Front side container -->
                     <div class="card-side flashcard-front">
@@ -149,9 +150,21 @@
             <p>"Big Night" refers to the first warm, rainy night of spring when amphibians migrate en masse to breeding pools.</p>
             <p>Use the flip cards to learn identifying characteristics, size information, and interesting facts about each species. Search or filter to find specific amphibians quickly.</p>
             <p>Photos and information collected by local naturalists and conservation organizations.</p>
+            
+            <!-- Keyboard shortcuts section will be added by JavaScript -->
+            <div class="keyboard-shortcuts">
+                <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><strong>Left Arrow</strong> Previous amphibian</li>
+                    <li><strong>Right Arrow</strong> Next amphibian</li>
+                    <li><strong>Space / Enter</strong> Flip card</li>
+                    <li><strong>Escape</strong> Close modal</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="fixed_script.js"></script>
+    <script src="ux_improvements.js"></script>
 </body>
 </html>
